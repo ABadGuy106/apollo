@@ -222,23 +222,23 @@ public class AuthConfiguration {
         DataSource datasource) throws Exception {
       JdbcUserDetailsManager jdbcUserDetailsManager = auth.jdbcAuthentication()
           .passwordEncoder(new BCryptPasswordEncoder()).dataSource(datasource)
-          .usersByUsernameQuery("select Username,Password,Enabled from `Users` where Username = ?")
+          .usersByUsernameQuery("select \"Username\",\"Password\",\"Enabled\" from \"Users\" where \"Username\" = ?")
           .authoritiesByUsernameQuery(
-              "select Username,Authority from `Authorities` where Username = ?")
+              "select \"Username\",\"Authority\" from \"Authorities\" where \"Username\" = ?")
           .getUserDetailsService();
 
-      jdbcUserDetailsManager.setUserExistsSql("select Username from `Users` where Username = ?");
+      jdbcUserDetailsManager.setUserExistsSql("select \"Username\" from \"Users\" where \"Username\" = ?");
       jdbcUserDetailsManager
-          .setCreateUserSql("insert into `Users` (Username, Password, Enabled) values (?,?,?)");
+          .setCreateUserSql("insert into \"Users\" (\"Username\", \"Password\", \"Enabled\") values (?,?,?)");
       jdbcUserDetailsManager
-          .setUpdateUserSql("update `Users` set Password = ?, Enabled = ? where Username = ?");
-      jdbcUserDetailsManager.setDeleteUserSql("delete from `Users` where Username = ?");
+          .setUpdateUserSql("update \"Users\" set \"Password\" = ?, \"Enabled\" = ? where \"Username\" = ?");
+      jdbcUserDetailsManager.setDeleteUserSql("delete from \"Users\" where \"Username\" = ?");
       jdbcUserDetailsManager
-          .setCreateAuthoritySql("insert into `Authorities` (Username, Authority) values (?,?)");
+          .setCreateAuthoritySql("insert into \"Authorities\" (\"Username\", \"Authority\") values (?,?)");
       jdbcUserDetailsManager
-          .setDeleteUserAuthoritiesSql("delete from `Authorities` where Username = ?");
+          .setDeleteUserAuthoritiesSql("delete from \"Authorities\" where \"Username\" = ?");
       jdbcUserDetailsManager
-          .setChangePasswordSql("update `Users` set Password = ? where Username = ?");
+          .setChangePasswordSql("update \"Users\" set \"Password\" = ? where \"Username\" = ?");
 
       return jdbcUserDetailsManager;
     }
