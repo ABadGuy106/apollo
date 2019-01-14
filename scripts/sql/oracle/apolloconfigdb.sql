@@ -656,8 +656,8 @@ values (1, 1, 'timeout', '100', 'sample timeout配置', 1, sysdate);
 insert into "Release" ("Id", "ReleaseKey", "Name", "Comment", "AppId", "ClusterName", "NamespaceName", "Configurations", "DataChange_CreatedTime")
 values (1, '20161009155425-d3a0749c6e20bc15', '20161009155424-release', 'Sample发布', 'SampleApp', 'default', 'application', '{"timeout":"100"}', sysdate);
 
-insert into "ReleaseHistory" ("Id", "AppId", "ClusterName", "NamespaceName", "BranchName", "ReleaseId", "PreviousReleaseId", "Operation", "OperationContext", "DataChange_CreatedBy", "DataChange_LastModifiedBy", "DataChange_CreatedTime")
-values (1, 'SampleApp', 'default', 'application', 'default', 1, 0, 0, '{}', 'apollo', 'apollo', sysdate);
+insert into "ReleaseHistory" ("Id", "AppId", "ClusterName", "NamespaceName", "BranchName", "ReleaseId", "PreviousReleaseId", "Operation", "OperationContext", "DataChange_CreatedBy", "DataChange_LastModifiedBy", "DataChange_CreatedTime", "DataChange_LastTime")
+values (1, 'SampleApp', 'default', 'application', 'default', 1, 0, 0, '{}', 'apollo', 'apollo', sysdate, sysdate);
 
 
 -- Create sequence 
