@@ -51,12 +51,14 @@ public class PropertyResolver implements ConfigTextResolver {
       //comment item
       if (isCommentItem(newItem)) {
 
-        handleCommentLine(namespaceId, oldItemByLine, newItem, lineCounter, changeSets);
+        continue;
+        //handleCommentLine(namespaceId, oldItemByLine, newItem, lineCounter, changeSets);
 
         //blank item
       } else if (isBlankItem(newItem)) {
 
-        handleBlankLine(namespaceId, oldItemByLine, lineCounter, changeSets);
+        continue;
+        //handleBlankLine(namespaceId, oldItemByLine, lineCounter, changeSets);
 
         //normal item
       } else {
